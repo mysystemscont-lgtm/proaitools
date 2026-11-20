@@ -1,0 +1,390 @@
+/* =========================================================================
+   PRO TOOLS AI (proaitools.shop) - ADVANCED CYBERPUNK-CLEAN STYLESHEET
+   Professional High-End SaaS Theme
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Dark Theme (Default) - Professional Sapphire/Cyan/Slate */
+  --bg-primary: #070B14;
+  --bg-surface: #0E1526;
+  --bg-card: rgba(14, 21, 38, 0.72);
+  --bg-card-hover: linear-gradient(180deg, rgba(16, 26, 48, 0.95) 0%, rgba(9, 15, 29, 0.98) 100%);
+  --border-card: rgba(56, 189, 248, 0.12);
+  --border-card-hover: rgba(56, 189, 248, 0.5);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+  --accent-cyan: #38BDF8;
+  --accent-blue: #0EA5E9;
+  --accent-indigo: #6366F1;
+  --accent-emerald: #10B981;
+  --glass-blur: blur(16px);
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 15px -3px rgba(14, 165, 233, 0.04);
+  --card-shadow-hover: 0 25px 50px -12px rgba(2, 6, 23, 0.95), 0 0 30px -4px rgba(14, 165, 233, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+html.light-mode {
+  --bg-primary: #F4F6FB;
+  --bg-surface: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-hover: #FFFFFF;
+  --border-card: rgba(15, 23, 42, 0.09);
+  --border-card-hover: rgba(14, 165, 233, 0.5);
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+  --glass-blur: blur(16px);
+  --card-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.06), 0 0 15px -3px rgba(14, 165, 233, 0.05);
+  --card-shadow-hover: 0 20px 35px -10px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(14, 165, 233, 0.25);
+}
+
+/* Base resets & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+code, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Glow Text & Gradient Helpers */
+.text-gradient-cyan-blue {
+  background: linear-gradient(135deg, #38BDF8 0%, #60A5FA 50%, #818CF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-cyan {
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Glassmorphism Classes with Sophisticated Hover States */
+.glass-panel {
+  position: relative;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.glass-panel:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Subtle hairline top lighting highlight on card hover */
+.glass-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8), rgba(99, 102, 241, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.glass-panel:hover::after {
+  opacity: 1;
+}
+
+.glass-nav {
+  background: rgba(7, 11, 20, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+html.light-mode .glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Interactive 3D Card Tilt */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform;
+  transition: transform 0.15s ease-out, box-shadow 0.25s ease;
+}
+
+.tilt-inner {
+  transform: translateZ(24px);
+  transform-style: preserve-3d;
+}
+
+/* Professional Card Border Hover (Luxury Tech & Modern SaaS) */
+.animated-border {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 1.25rem;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.65), rgba(99, 102, 241, 0.5), rgba(14, 165, 233, 0.65), rgba(16, 185, 129, 0.4));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px -3px rgba(14, 165, 233, 0.3);
+}
+
+.animated-border:hover::before {
+  opacity: 1;
+}
+
+/* Interactive Element Hover States */
+.tool-icon-box {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tilt-card:hover .tool-icon-box {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(15, 23, 42, 0.95);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.25);
+}
+
+.tool-card-title {
+  transition: color 0.25s ease;
+}
+
+.tilt-card:hover .tool-card-title {
+  color: #38BDF8;
+}
+
+/* Floating Orbiting Badges in Hero */
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(3deg); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(14px) rotate(-4deg); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.animate-float-1 { animation: float-1 5s ease-in-out infinite; }
+.animate-float-2 { animation: float-2 6s ease-in-out infinite 1s; }
+.animate-float-3 { animation: float-3 5.5s ease-in-out infinite 0.5s; }
+
+/* Interactive Canvas Background in Hero */
+#heroCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+/* Magnetic Hover Buttons */
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.magnetic-btn:active {
+  transform: translateY(1px);
+}
+
+/* Infinite Marquee */
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  gap: 1.5rem;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1.5rem;
+  animation: scrollMarquee 35s linear infinite;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% - 1.5rem)); }
+}
+
+/* Filter Tab Pills */
+.filter-pill {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-pill.active {
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px -2px rgba(2, 132, 199, 0.45);
+  border-color: transparent;
+}
+
+.filter-pill:hover:not(.active) {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.9);
+  color: #FFFFFF;
+}
+
+/* Pulse Glow Keyframes */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Modal Backdrop & Animations */
+.modal-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content-box {
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal-content-box {
+  transform: scale(1) translateY(0);
+}
+
+/* Badge styles */
+.badge-hot {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.badge-trend {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.badge-cool {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.35);
+}
+
+.badge-purple {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.badge-green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.badge-bundle {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(14, 165, 233, 0.25));
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+/* Accordion Smooth Height Transition */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.accordion-item.open .accordion-content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.accordion-item.open .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
